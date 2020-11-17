@@ -8,3 +8,9 @@ tarea de SSDD
 import numpy as np
 import pandas as pd
 
+data_kddtest = pd.read_csv("KDDTest+.txt", header=None)
+data_kddtrain = pd.read_csv("KDDTrain+_20Percent.txt", header=None)
+
+
+
+
