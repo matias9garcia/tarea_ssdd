@@ -12,10 +12,10 @@ data_kddtest = pd.read_csv("KDDTest+.txt", header=None)
 data_kddtrain = pd.read_csv("KDDTrain+_20Percent.txt", header=None)
 
 "Se transforman los atributos no númericos, utilizando labelEncoder"
-X_train = data_kddtrain.drop([42], axis=1)
+X_train = data_kddtrain.drop([41,42], axis=1)
 etiqueta_train = data_kddtrain[41] #Etiqueta
 
-X_test = data_kddtest.drop([42], axis=1)
+X_test = data_kddtest.drop([41,42], axis=1)
 etiqueta_test = data_kddtest[41] #Etiqueta
 
 label_train=LabelEncoder()
@@ -56,9 +56,10 @@ train_normalize = train_std * (0.99 - 0.1) + 0.1
 test_std = (X_test - X_test.min(axis=0)) / (X_test.max(axis=0) - X_test.min(axis=0))
 test_normalize = test_std * (0.99 - 0.1) + 0.1
 
+"Se agregla columna correspondiente a la etiqueta"
+train_normalize['etiqueta'] = etiqueta_train_bipolar
+test_normalize['etiqueta'] = etiqueta_test_bipolar
+
 
 train_normalize.to_csv(r'train.txt', header=None, index=None, sep=' ', mode='a')
 test_normalize.to_csv(r'test.txt', header=None, index=None, sep=' ', mode='a')
-
-print(etiqueta_test_bipolar)
-print(etiqueta_train_bipolar)
