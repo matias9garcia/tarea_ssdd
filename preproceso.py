@@ -61,5 +61,5 @@ train_normalize['etiqueta'] = etiqueta_train_bipolar
 test_normalize['etiqueta'] = etiqueta_test_bipolar
 
 
-train_normalize.to_csv(r'train.txt', header=None, index=None, sep=' ', mode='a')
-test_normalize.to_csv(r'test.txt', header=None, index=None, sep=' ', mode='a')
+train_normalize.to_csv(r'train.txt', header=None, index=None, sep=',', mode='a')
+test_normalize.to_csv(r'test.txt', header=None, index=None, sep=',', mode='a')
